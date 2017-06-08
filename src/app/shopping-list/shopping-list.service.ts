@@ -16,4 +16,14 @@ export class ShoppingListService {
       this.ingredients.push(ingredient);
       this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // This method emits a LOT of events - NOT RECOMMENDED
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
